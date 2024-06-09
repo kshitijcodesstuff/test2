@@ -1,5 +1,15 @@
 const prisma = require('../utils/db');
 
+const createAlert = async (value, direction) => {
+  return await prisma.alert.create({
+    data: {
+      value,
+      direction,
+      status: 'pending',
+    },
+  });
+};
+
 const getAlerts = async () => {
   return await prisma.alert.findMany();
 };
@@ -11,5 +21,8 @@ const updateAlertStatus = async (id, status) => {
   });
 };
 
-module.exports = { getAlerts, updateAlertStatus };
+module.exports = { createAlert,getAlerts, updateAlertStatus };
+
+
+
 

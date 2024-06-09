@@ -7,6 +7,6 @@ prisma.$connect().catch(err => {
   process.exit(1);
 });
 
-module.exports = prisma;
+module.exports = prisma; 
 
 

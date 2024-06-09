@@ -1,15 +1,48 @@
-const { createAlert, getAlerts } = require('../models/alert');
+// src/controllers/alertController.js
+const { createAlert, getAlerts, updateAlertStatus } = require('../models/alert');
 
 const createAlertHandler = async (req, res) => {
   const { value, direction } = req.body;
-  const newAlert = await createAlert(value, direction);
-  res.status(201).json(newAlert);
+
+  try {
+    const newAlert = await createAlert(value, direction);
+    res.status(201).json(newAlert);
+  } catch (error) {
+    console.error('Error creating alert:', error);
+    res.status(500).json({ error: 'Internal server error', message: error.message });
+  }
 };
 
 const getAlertsHandler = async (req, res) => {
-  const alerts = await getAlerts();
-  res.status(200).json(alerts);
+  try {
+    const alerts = await getAlerts();
+    res.status(200).json(alerts);
+  } catch (error) {
+    console.error('Error getting alerts:', error);
+    res.status(500).json({ error: 'Internal server error', message: error.message });
+  }
 };
 
-module.exports = { createAlertHandler, getAlertsHandler };
+const updateAlertStatusHandler = async (req, res) => {
+  const { id } = req.params;
+  const { status } = req.body;
+
+  try {
+    const updatedAlert = await updateAlertStatus(id, status);
+    res.status(200).json(updatedAlert);
+  } catch (error) {
+    console.error('Error updating alert status:', error);
+    res.status(500).json({ error: 'Internal server error', message: error.message });
+  }
+};
+
+module.exports = {
+  createAlertHandler,
+  getAlertsHandler,
+  updateAlertStatusHandler
+};
+
+
+
+
 
