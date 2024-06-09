@@ -1,6 +1,3 @@
-Sure, here's a sample `README.md` file for the Node.js project:
-
-```markdown
 # Crypto Price Alert System
 
 This is a Node.js application that provides functionality for creating and managing price alerts for the BTC/USDT trading pair on the Binance cryptocurrency exchange. The application uses WebSockets to receive real-time trade data and updates the alert status accordingly.
