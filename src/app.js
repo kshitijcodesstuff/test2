@@ -1,8 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const alertRoutes = require('./routes/alertRoutes');
-require('./config/redis'); // Ensure Redis is configured
-require('./services/binanceService'); // Ensure the Binance service starts
+require('./services/binanceService'); 
 
 const app = express();
 const port = process.env.PORT || 3000;
