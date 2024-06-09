@@ -47,8 +47,6 @@ This is a Node.js application that provides functionality for creating and manag
    ```
    PORT=3000
    DATABASE_URL=your_postgres_connection_url
-   REDIS_HOST=your_redis_host
-   REDIS_PORT=your_redis_port
    TRADING_PAIR=btcusdt
    ```
 
