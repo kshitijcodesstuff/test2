@@ -1,4 +1,3 @@
-// src/controllers/alertController.js
 const { createAlert, getAlerts, updateAlertStatus } = require('../models/alert');
 
 const createAlertHandler = async (req, res) => {
